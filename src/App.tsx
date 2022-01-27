@@ -174,7 +174,7 @@ function App() {
 
       <Alert message="Not enough letters" isOpen={isNotEnoughLetters} />
       <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
-      <Alert message={`The word was ${solution}`} isOpen={isGameLost} />
+      {/* <Alert message={`The word was ${solution}`} isOpen={isGameLost} /> */}
       <Alert
         message={successAlert}
         isOpen={successAlert !== ''}
