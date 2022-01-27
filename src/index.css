@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: red;
+  background-image: url('./images/bg.jpg');
+}
+
 .cell-animation {
   animation: revealCharCell linear;
   animation-duration: 0.15s;
@@ -19,4 +24,10 @@
   100% {
     transform: scale(1);
   }
+}
+
+.app-container {
+  max-width: 600px;
+  padding: 0 8px;
+  margin-top: 40px;
 }
