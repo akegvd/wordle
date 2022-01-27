@@ -1,10 +1,14 @@
 import { WORDS } from '../constants/wordlist'
-import { VALIDGUESSES } from '../constants/validGuesses'
+
+const Typo = require('typo-js');
+const dictionary = new Typo('en_US', false, false, { dictionaryPath: 'dic' });
 
 export const isWordInWordList = (word: string) => {
+  const transformedWord = word.toLowerCase();
+
   return (
-    WORDS.includes(word.toLowerCase()) ||
-    VALIDGUESSES.includes(word.toLowerCase())
+    WORDS.includes(transformedWord) ||
+    dictionary.check(transformedWord)
   )
 }
 
@@ -20,7 +24,7 @@ export const getWordOfDay = () => {
   const index = Math.floor((now - epochMs) / msInDay)
 
   return {
-    solution: WORDS[index].toUpperCase(),
+    solution: (WORDS[index] ?? WORDS?.[0])?.toUpperCase(),
     solutionIndex: index,
   }
 }
