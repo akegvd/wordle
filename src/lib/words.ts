@@ -24,7 +24,6 @@ export const getWordOfDay = () => {
   if (location?.search) {
     try {
       query = atob(location.search.slice(1)).toUpperCase()
-      console.log(query);
 
       if (query.length !== 6) {
         alert(`Incorrect word length from encoded query. ${defaultMessage}`)
